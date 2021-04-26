@@ -23,7 +23,7 @@ if !command -v git >/dev/null 2>&1; then
     apt install -y git 
 fi
 
-apt install -y zs
+apt install -y zsh
 chsh -s /bin/zsh
 sh  ./lib/ohmyzsh/install.sh
 # 自动补全插件
@@ -39,6 +39,8 @@ echo '. ~/.dkrc' >> ~/.zshr
 source ~/.zshr
 # docker 安装
 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyu
+# 设置docker0地址
+mv ./lib/docker/daemon.json /etc/docker/
 # docker-compose 安装
 curl -L https://get.daocloud.io/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compos
 chmod +x /usr/local/bin/docker-compose
